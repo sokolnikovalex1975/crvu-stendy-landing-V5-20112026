@@ -35,7 +35,15 @@
       frame.setAttribute('aria-hidden', 'true');
       frame.allow = 'autoplay; fullscreen; picture-in-picture';
       frame.src = ORIGIN + '/video/' + id + '?background=1&autoplay=1&muted=1&loop=1&autopause=0&dnt=1&playsinline=1';
-      frame.addEventListener('load', function () { listen(); if (!visible) { send(frame, 'pause'); } });
+      frame.addEventListener('load', function () {
+        /* плеер Vimeo готов не сразу: повторяем подписку на события, пока видео не заиграет (до 20 с) */
+        var tries = 0;
+        var t = setInterval(function () {
+          if (live || ++tries > 40) { clearInterval(t); return; }
+          listen();
+          send(frame, visible ? 'play' : 'pause');
+        }, 500);
+      });
       btn.insertBefore(frame, btn.firstChild.nextSibling);
     }
 
