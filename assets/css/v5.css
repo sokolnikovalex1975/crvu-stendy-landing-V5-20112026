@@ -40,3 +40,19 @@
 .res3__notes li { position: relative; padding-left: 1rem; font-size: 0.875rem; line-height: 1.45; color: var(--ink); }
 .res3__notes li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
 .res3__rows dd { white-space: normal; }
+
+/* Площадки: логотипы */
+.venue__logo {
+  display: flex; align-items: center; justify-content: flex-start;
+  height: 72px; margin-bottom: 0.55rem; padding: 0 1rem;
+  border-radius: 12px; background: #fff; border: 1px solid var(--line, #e3e1dc);
+}
+.venue__logo img { display: block; max-height: 46px; max-width: 82%; width: auto; height: auto; object-fit: contain; background: none !important; border-radius: 0; box-shadow: none; }
+.venue__logo img[src$="vdnh-expo.svg"], .venue__logo img[src$="timiryazev.svg"], .venue__logo img[src$="patriot.png"], .venue__logo img[src$="expograd-yug.png"] { max-height: 56px; }
+.venue__logo--none { color: var(--line-2, #c9c6bf); }
+.venue__logo--none svg { width: 44px; height: 30px; }
+@media (max-width: 640px) {
+  .venue__logo { height: 58px; padding: 0 0.7rem; margin-bottom: 0.4rem; }
+  .venue__logo img { max-height: 34px; max-width: 92%; }
+  .venue__logo img[src$="vdnh-expo.svg"], .venue__logo img[src$="timiryazev.svg"], .venue__logo img[src$="patriot.png"], .venue__logo img[src$="expograd-yug.png"] { max-height: 42px; }
+}
