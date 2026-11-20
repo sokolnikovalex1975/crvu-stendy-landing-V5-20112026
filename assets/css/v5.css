@@ -1,0 +1,42 @@
+/* ==================== V5-20112026 ==================== */
+
+/* Первый экран: визуализация стенда Delta Battery (картинка ЦРВУ, доработанная в высоком разрешении) */
+.hero4__bg img { object-position: 72% 50%; }
+@media (max-width: 999px) and (orientation: portrait) { .hero4__bg img { object-position: 50% 8%; } }
+@media (max-width: 999px) and (orientation: landscape) { .hero4__bg img { object-position: 75% 50%; } }
+
+/* Без цены «от 900 000 ₽»: остаётся одна строка о составе работ */
+.hero3__from--text { margin-top: clamp(0.9rem, 1.8vw, 1.4rem); }
+.hero4 .hero3__from--text .hero3__from-d {
+  max-width: 30em;
+  padding-left: 0.85rem;
+  border-left: 3px solid var(--accent);
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  color: #fff;
+}
+@media (max-width: 640px) {
+  .hero4 .hero3__from--text .hero3__from-d { font-size: 0.9375rem; }
+}
+
+/* Калькулятор: ставка уровня на карточке */
+.opt__rate {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: var(--paper, #f6f5f2);
+  border: 1px solid var(--line, #e3e1dc);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.opt input:checked + .opt__body .opt__rate { background: #fff; border-color: var(--accent); }
+
+/* Калькулятор: «и выше» у Премиума и пометки к расчёту */
+.res3__plus { font-size: 0.55em; font-weight: 700; letter-spacing: 0; color: var(--ink-2); white-space: nowrap; }
+.res3__notes { display: grid; gap: 0.35rem; margin: 0; padding: 0; list-style: none; }
+.res3__notes li { position: relative; padding-left: 1rem; font-size: 0.875rem; line-height: 1.45; color: var(--ink); }
+.res3__notes li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.res3__rows dd { white-space: normal; }
